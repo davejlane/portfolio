@@ -9,7 +9,7 @@ describe('controllers', function() {
 
   describe('HomeCtrl', function(){
 
-    beforeEach(module('myApp.controllers'));
+    beforeEach(module('myApp'));
 
     it('should exist', inject(function($controller) {
       var scope = {},
@@ -21,7 +21,7 @@ describe('controllers', function() {
 
   describe('WorkCtrl', function(){
 
-    beforeEach(module('myApp.controllers'));
+    beforeEach(module('myApp'));
 
     it('should exist', inject(function($controller) {
       var scope = {},
@@ -41,7 +41,7 @@ describe('controllers', function() {
 
   describe('ProjectCtrl', function(){
 
-    beforeEach(module('myApp.controllers'));
+    beforeEach(module('myApp'));
 
     it('should exist', inject(function($controller) {
       var scope = {},
