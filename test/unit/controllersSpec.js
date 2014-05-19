@@ -8,13 +8,13 @@ describe('controllers', function(){
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl1 = $controller('MyCtrl1', { $scope: {} });
-    expect(myCtrl1).toBeDefined();
+    var homeCtrl = $controller('HomeCtrl', { $scope: {} });
+    expect(homeCtrl).toBeDefined();
   }));
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl2 = $controller('MyCtrl2', { $scope: {} });
-    expect(myCtrl2).toBeDefined();
+    var workCtrl = $controller('WorkCtrl', { $scope: {} });
+    expect(workCtrl).toBeDefined();
   }));
 });
