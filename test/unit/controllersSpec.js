@@ -2,19 +2,41 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
 
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var homeCtrl = $controller('HomeCtrl', { $scope: {} });
-    expect(homeCtrl).toBeDefined();
-  }));
+/* jasmine specs for controllers go here */
+describe('controllers', function() {
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var workCtrl = $controller('WorkCtrl', { $scope: {} });
-    expect(workCtrl).toBeDefined();
-  }));
+  describe('HomeCtrl', function(){
+
+    beforeEach(module('myApp.controllers'));
+
+    it('should exist', inject(function($controller) {
+      var scope = {},
+          ctrl = $controller('HomeCtrl', {$scope:scope});
+
+      expect(ctrl).toBeDefined();
+    }));
+  });
+
+  describe('WorkCtrl', function(){
+
+    beforeEach(module('myApp.controllers'));
+
+    it('should exist', inject(function($controller) {
+      var scope = {},
+      ctrl = $controller('WorkCtrl', {$scope:scope});
+
+      expect(ctrl).toBeDefined();
+    }));
+
+    it('should have a projects model', inject(function($controller) {
+      var scope = {},
+      ctrl = $controller('WorkCtrl', {$scope:scope});
+
+      expect(scope.projects).toBeDefined();
+      expect(scope.projects.length).toBe(3);
+    }));
+  });
+
 });
