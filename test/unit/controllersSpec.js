@@ -39,4 +39,16 @@ describe('controllers', function() {
     }));
   });
 
+  describe('ProjectCtrl', function(){
+
+    beforeEach(module('myApp.controllers'));
+
+    it('should exist', inject(function($controller) {
+      var scope = {},
+          ctrl = $controller('ProjectCtrl', {$scope:scope});
+
+      expect(ctrl).toBeDefined();
+    }));
+  });
+
 });

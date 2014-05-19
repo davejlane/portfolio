@@ -18,6 +18,10 @@ config(['$routeProvider', function($routeProvider) {
   	templateUrl: 'views/work.html', 
   	controller: 'WorkCtrl'
   });
+  $routeProvider.when('/work/:project', {
+    templateUrl: 'views/project.html', 
+    controller: 'ProjectCtrl'
+  });
   $routeProvider.otherwise({
   	redirectTo: '/home'
   });
