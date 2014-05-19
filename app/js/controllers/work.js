@@ -1,27 +1,10 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('WorkCtrl', ['$scope', function($scope) {
-  	$scope.projects = [
-  		{
-  			'title': 'WhitePages.com',
-  			'description': 'A bunch of hooey',
-  			'thumbnail': 'http://placekitten.com/g/60/60',
-        'id': 'whitepages'
-  		},
+  .controller('WorkCtrl', ['$scope', '$http', function($scope, $http) {
 
-  		{
-  			'title': 'Disney Vacation Club',
-  			'description': 'It\s a baller world after all',
-  			'thumbnail': 'http://placekitten.com/g/60/60',
-        'id': 'dvc'
-  		},
 
-   		{
-  			'title': 'Corbis',
-  			'description': 'This place be crazy',
-  			'thumbnail': 'http://placekitten.com/g/60/60',
-        'id': 'corbis'
-  		}
-  	]
+  	$http.get('projects/projects.json').success(function(data) {
+  		$scope.projects = data;
+  	});
   }]); 	

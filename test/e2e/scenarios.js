@@ -20,7 +20,7 @@ describe('my app', function() {
 
     it('should render home when user navigates to /home', function() {
       expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/Home view/);
+        toMatch(/I am a Seattle-based UI Engineer./);
     });
 
   });

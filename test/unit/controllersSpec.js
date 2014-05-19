@@ -7,9 +7,9 @@
 /* jasmine specs for controllers go here */
 describe('controllers', function() {
 
-  describe('HomeCtrl', function(){
+  beforeEach(module('myApp'));
 
-    beforeEach(module('myApp'));
+  describe('HomeCtrl', function(){
 
     it('should exist', inject(function($controller) {
       var scope = {},
@@ -20,28 +20,35 @@ describe('controllers', function() {
   });
 
   describe('WorkCtrl', function(){
+    var scope, ctrl, $httpBackend;
 
     beforeEach(module('myApp'));
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('projects/projects.json').
+          respond([
+            {title: 'foo.com'}, 
+            {title: 'bar.com'}
+          ]);
 
-    it('should exist', inject(function($controller) {
-      var scope = {},
-      ctrl = $controller('WorkCtrl', {$scope:scope});
-
-      expect(ctrl).toBeDefined();
+      scope = $rootScope.$new();
+      ctrl = $controller('WorkCtrl', {$scope: scope});
     }));
 
-    it('should have a projects model', inject(function($controller) {
-      var scope = {},
-      ctrl = $controller('WorkCtrl', {$scope:scope});
 
-      expect(scope.projects).toBeDefined();
-      expect(scope.projects.length).toBe(3);
-    }));
+    it('should create "phones" model with 2 phones fetched from xhr', function() {
+      expect(scope.projects).toBeUndefined();
+      $httpBackend.flush();
+
+      expect(scope.projects).toEqual([
+        {title: 'foo.com'},
+        {title: 'bar.com'}
+      ]);
+    });
+
   });
 
   describe('ProjectCtrl', function(){
-
-    beforeEach(module('myApp'));
 
     it('should exist', inject(function($controller) {
       var scope = {},
