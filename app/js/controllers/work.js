@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('WorkCtrl', ['$scope', '$http', function($scope, $http) {
+  .controller('WorkCtrl', ['$scope', 'projectsApi', function($scope, projectsApi) {
 
-
-  	$http.get('projects/projects.json').success(function(data) {
+  	projectsApi.fetchAll().success(function(data) {
   		$scope.projects = data;
   	});
   }]); 	

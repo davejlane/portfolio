@@ -4,7 +4,7 @@
 
 describe('my app', function() {
 
-  browser.get('index.html');
+  browser.get('/app');
 
   it('should automatically redirect to /home when location hash/fragment is empty', function() {
     expect(browser.getLocationAbsUrl()).toMatch("/home");
@@ -14,7 +14,7 @@ describe('my app', function() {
   describe('home', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/home');
+      browser.get('/app/#/home');
     });
 
 
@@ -29,7 +29,7 @@ describe('my app', function() {
   describe('work', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/work');
+      browser.get('/app/#/work');
     });
 
 

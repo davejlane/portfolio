@@ -1,11 +1,15 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-
-
-
-/* jasmine specs for controllers go here */
 describe('controllers', function() {
+
+  beforeEach(function(){
+    this.addMatchers({
+      toEqualData: function(expected) {
+        return angular.equals(this.actual, expected);
+      }
+    });
+  });
 
   beforeEach(module('myApp'));
 
@@ -36,7 +40,7 @@ describe('controllers', function() {
     }));
 
 
-    it('should create "phones" model with 2 phones fetched from xhr', function() {
+    it('should create "projects" model with 2 projects fetched from xhr', function() {
       expect(scope.projects).toBeUndefined();
       $httpBackend.flush();
 
@@ -49,13 +53,31 @@ describe('controllers', function() {
   });
 
   describe('ProjectCtrl', function(){
+    var scope, $httpBackend, ctrl,
+        fooProjectData = function() {
+          return {
+            title: 'WhitePages.com',
+            description: ['A bunch of hooey']
+          }
+        };
 
-    it('should exist', inject(function($controller) {
-      var scope = {},
-          ctrl = $controller('ProjectCtrl', {$scope:scope});
+    beforeEach(module('myApp'));
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $routeParams, $controller) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('projects/foo.json')
+      .respond(fooProjectData());
 
-      expect(ctrl).toBeDefined();
+      $routeParams.projectId = 'foo';
+      scope = $rootScope.$new();
+      ctrl = $controller('ProjectCtrl', {$scope: scope});
     }));
-  });
 
+
+    it('should fetch phone detail', function() {
+      expect(scope.project).toBeUndefined();
+      $httpBackend.flush();
+
+      expect(scope.project).toEqualData(fooProjectData());
+    });
+  });
 });

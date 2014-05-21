@@ -14,7 +14,7 @@ config(['$routeProvider', function($routeProvider) {
   	templateUrl: 'views/work.html', 
   	controller: 'WorkCtrl'
   });
-  $routeProvider.when('/work/:project', {
+  $routeProvider.when('/work/:projectId', {
     templateUrl: 'views/project.html', 
     controller: 'ProjectCtrl'
   });
