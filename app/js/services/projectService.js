@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-  .service('projectsApi', [ '$http', function( $http) {
+  .factory('ProjectService', [ '$http', function( $http) {
 		return {
     	fetchAll: function() {
       	return $http.get('projects/projects.json');

@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('ProjectCtrl', ['$scope', '$routeParams', 'projectsApi',  function($scope, $routeParams, projectsApi) {
+  .controller('ProjectCtrl', ['$scope', '$routeParams', 'ProjectService',  function($scope, $routeParams, ProjectService) {
 
-  	projectsApi.fetchProject($routeParams.projectId).success(function(data) {
+  	ProjectService.fetchProject($routeParams.projectId).success(function(data) {
   		$scope.project = data;
   	});
   }]);	
+
+

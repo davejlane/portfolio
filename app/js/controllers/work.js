@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('WorkCtrl', ['$scope', 'projectsApi', function($scope, projectsApi) {
+  .controller('WorkCtrl', ['$scope', 'ProjectService', function($scope, ProjectService) {
 
-  	projectsApi.fetchAll().success(function(data) {
+  	ProjectService.fetchAll().success(function(data) {
   		$scope.projects = data;
   	});
   }]); 	
