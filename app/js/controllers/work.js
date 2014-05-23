@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('WorkCtrl', ['$scope', 'ProjectService', function($scope, ProjectService) {
-
-  	ProjectService.fetchAll().success(function(data) {
-  		$scope.projects = data;
-  	});
-  }]); 	
+.controller('WorkCtrl', ['$scope', 'projectService', function($scope, projectService) {
+	projectService
+    .query()
+    .$promise
+    .then(function(projectsResponse) {
+      $scope.projects = projectsResponse;
+      $scope.somethingAfterBagelsLoad = true;
+    });
+	}]);

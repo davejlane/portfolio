@@ -1,14 +1,30 @@
 'use strict';
 
-angular.module('myApp')
-  .factory('ProjectService', [ '$http', function( $http) {
-		return {
-    	fetchAll: function() {
-      	return $http.get('projects/projects.json');
-      },
+// angular.module('myApp')
+//   .factory('ProjectService', [ '$resource', function($resource) {
 
-      fetchProject: function(project) {
-      	return $http.get('projects/'+ project +'.json' );
-      } 
-    };
-  }]);
+//     return $resource('projects/:projectId.json', {}, {
+//       fetchOne: {method:'GET', isArray:true},
+//       fetchAll: {method:'GET', params:{projectId: 'projects'}, isArray:true}
+//     });
+
+//   }]);
+
+
+// angular.module('myApp')
+//   .factory('ProjectService',
+//     function($resource) {
+//       return $resource('projects/projects.json');
+//     }
+//   );
+
+
+angular.module('myApp')
+  .factory('projectService',
+    function($resource) {
+      return $resource('projects/:projectId.json', {}, {
+        query: {params: {projectId: 'projects'}, isArray: true},
+        get: {isArray: true}
+      });
+    }
+  );
