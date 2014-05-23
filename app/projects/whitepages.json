@@ -1,8 +1,7 @@
-[
-  {
-    "title": "WhitePages.com", 
-    "description": "A bunch of hooey", 
-    "thumbnail": "http://placekitten.com/g/60/60", 
-    "id": "whitepages"
-  }
-]
+{
+  "title": "WhitePages.com", 
+  "description": "A bunch of hooey", 
+  "thumbnail": "http://placekitten.com/g/60/60", 
+  "id": "whitepages"
+}
+
