@@ -12,9 +12,9 @@ config(['$routeProvider', function($routeProvider) {
   	templateUrl: 'views/home.html', 
   	controller: 'HomeCtrl'
   });
-  $routeProvider.when('/work', {
-  	templateUrl: 'views/work.html', 
-  	controller: 'WorkCtrl'
+  $routeProvider.when('/projects', {
+  	templateUrl: 'views/projects.html', 
+  	controller: 'ProjectsCtrl'
   });
   $routeProvider.when('/work/:projectId', {
     templateUrl: 'views/project.html', 

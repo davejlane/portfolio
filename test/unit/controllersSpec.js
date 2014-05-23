@@ -1,6 +1,6 @@
 
 
-describe('WorkCtrl', function() {
+describe('ProjectsCtrl', function() {
   var $q,
       $rootScope,
       $scope,
@@ -26,7 +26,7 @@ describe('WorkCtrl', function() {
     
     spyOn(mockProjectService, 'query').andCallThrough();
     
-    $controller('WorkCtrl', {
+    $controller('ProjectsCtrl', {
       '$scope': $scope,
       'projectService': mockProjectService
     });
