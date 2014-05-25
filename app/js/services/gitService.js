@@ -1,20 +1,13 @@
+'use strict';
+
 angular.module('myApp')
-	.factory('gitService', function($http) {
-		var url = 'https://api.github.com';
-
-		var runUserRequest = function(username, path) {
-			return $http({
-				method: 'JSONP',
-					 url: url + '/users/' + 
-								username + '/' +
-								path + '?callback=JSON_CALLBACK'
-
-			});
-		}
-
-		return {
-			events: function(username) {
-				return runUserRequest(username, 'events');
-			}
-		};
-	});
+	.factory('gitCache', ['$cacheFactory', function($cacheFactory) {
+	 return $cacheFactory('git-cache');
+	}])
+  .factory('gitService',
+    function($resource) {
+      return $resource('https://api.github.com/users/davejlane/events', {}, {
+        query: {isArray: true, cache: true}
+      });
+    }
+  );

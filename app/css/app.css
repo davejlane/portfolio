@@ -28,3 +28,14 @@
   content: "";
   padding: 0;
 }
+
+.main-nav h1 {
+  font-size: 1.6em;
+  float: left;
+}
+
+.main-nav .menu {
+  float: right;
+  font-size: 1em;
+}
+

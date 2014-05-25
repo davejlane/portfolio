@@ -1,1 +1,10 @@
 <p>I am a Seattle-based UI Engineer. My passion is in creating usable and accessible websites and applications, specializing in using the best practices, web standards and technologies to create dynamic and exciting user experiences. I work using  CSS, Javascript, angularjs, HTML and Ruby on Rails along with a variety of other languages and platforms.</p>
+
+{{ data  }}
+
+<ul ng-repeat="response in responses | limitTo : 10">
+	<li>
+		{{response.id}} <br>
+		{{response.payload.commits[0].message}}
+	</li>
+</ul>

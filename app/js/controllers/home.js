@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('HomeCtrl', ['$scope',  'gitService',  function($scope, gitService) {
+.controller('HomeCtrl', ['$scope', 'gitCache',  'gitService',  function($scope, gitCache, gitService) {
 
- 		gitService.events('davejlane').success(function(data, success, headers) {
- 			console.log(data);
- 		});
-
-  }]);	
+	gitService
+		.query()
+		.$promise
+		.then(function(gitResponse) {
+			gitCache.put('data', gitResponse);
+			$scope.responses = gitCache.get('data');
+		});
+}]);	
 
