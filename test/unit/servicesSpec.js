@@ -2,13 +2,31 @@
 
 /* jasmine specs for services go here */
 
-describe('service', function() {
-  beforeEach(module('myApp.services'));
+describe('Service: gitCache', function(){
+  var gitCache;
 
+  beforeEach(module('myApp'));
 
-  describe('version', function() {
-    it('should return current version', inject(function(version) {
-      expect(version).toEqual('0.1');
-    }));
+  beforeEach(inject(function($injector) {
+    gitCache = $injector.get('gitCache');
+  }));
+
+  beforeEach(function(){
+    gitCache.put('key', 'value');
+    gitCache.put('another key', 'another value');
+  });
+
+  it('should be a git-cache', function(){
+    expect(gitCache.info().id).toEqual('git-cache');
+  });
+
+  it('shoud have remove', function(){
+    gitCache.remove('another key');
+    expect(gitCache.get('another key')).toBeUndefined();
+  });
+
+  it('removeAll() should empty cache', function(){
+    gitCache.removeAll();
+    expect(gitCache.info().size).toEqual(0);
   });
 });
