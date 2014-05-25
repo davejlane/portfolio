@@ -1,10 +1,89 @@
 @white: #f9f9f9;
 
+@headline-font : 'Dosis';
+@default-font: 'Helvetica-neue', sans-serif;
+@default-font-size: 16px;
+
+@header-line-height: 3rem;
 
 * {
 	box-sizing: border-box;
 }
 
+/* UTILITY CLASSES */
+
+.fl-left {
+	float: left;
+}
+
+.fl-right {
+	float: right;
+}
+
+.clear-all {
+	clear: both;
+}
+
+.wrap-floats {
+	overflow: hidden;
+}
+
+ul.unstyled {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* STYLE DEFAULTS */
+
 body {
 	background: @white;
+	font-family: @default-font;
+	font-size: @default-font-size;
 }
+
+h1, h2, h3, h4, h5, h6, .logo {
+	font-family: @headline-font;
+}
+
+.logo, .sub-heading {
+	font-weight: 700;
+}
+
+.headline {
+	font-weight: 300;
+	font-size: 4em;
+	margin: 1em 0 0;
+}
+
+p {
+	font-size: 1em;
+}
+
+/* NAV */
+
+.main-header {
+	background: grey;
+
+	a {
+		display: block;
+		line-height: @header-line-height;
+		text-decoration: none;
+		padding: 0.5rem;
+	}
+}
+
+.logo {
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.menu {
+	float: right;
+
+	li {
+		display: inline-block;
+
+	}
+}
+
