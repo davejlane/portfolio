@@ -16,11 +16,17 @@ angular.module('myApp', [
   	templateUrl: 'views/projects.html', 
   	controller: 'ProjectsCtrl'
   });
-  $routeProvider.when('/work/:projectId', {
+  $routeProvider.when('/projects/:projectId', {
     templateUrl: 'views/project.html', 
     controller: 'ProjectCtrl'
   });
   $routeProvider.otherwise({
   	redirectTo: '/home'
   });
+}])
+.run(['$rootScope', '$location', function($rootScope, $location) {
+   var path = function() { return $location.path(); };
+   $rootScope.$watch(path, function(newVal, oldVal){
+     $rootScope.activeTab = newVal;
+   });
 }]);
