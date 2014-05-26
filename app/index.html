@@ -10,6 +10,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/icomoon/style.css">
   <link rel="stylesheet/less" type="text/css" href="less/styles.less" />
   <script src="bower_components/less/dist/less-1.7.0.js"></script>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -22,8 +23,16 @@
     </p>
     <nav class="menu fl-right">
       <ul class="unstyled">
-        <li><a href="#/home" ng-class="{active: activeTab =='/home'}">home</a></li>
-        <li><a href="#/projects" ng-class="{active: activeTab =='/projects'}">Projects</a></li>
+        <li>
+          <a href="#/home" class="icon-home" ng-class="{active: activeTab =='/home'}">
+            <span class="menu-text">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/projects" class="icon-stack" ng-class="{active: activeTab =='/projects'}">
+            <span class="menu-text">Projects</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -33,7 +42,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view class="clear-all"></div>
+  <div ng-view class="clear-all main"></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
