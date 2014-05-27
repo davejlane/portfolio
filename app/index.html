@@ -17,33 +17,36 @@
   <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <header class="main-header wrap-floats">
-    <p class="logo fl-left">
-      <a href="#/">Dave Lane</a>
-    </p>
-    <nav class="menu fl-right">
-      <ul class="unstyled">
-        <li>
-          <a href="#/home" class="icon-home" ng-class="{active: activeTab =='/home'}">
-            <span class="menu-text">home</span>
-          </a>
-        </li>
-        <li>
-          <a href="#/projects" class="icon-stack" ng-class="{active: activeTab =='/projects'}">
-            <span class="menu-text">Projects</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div class="body-wrapper">
+    <div class="header-wrapper">
+      <header class="main-header wrap-floats">
+        <p class="logo fl-left">
+          <a href="#/">Dave Lane</a>
+        </p>
+        <nav class="menu fl-right">
+          <ul class="unstyled">
+            <li>
+              <a href="#/home" class="icon-home" ng-class="{active: activeTab =='/home'}">
+                <span class="menu-text">home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/projects" class="icon-stack" ng-class="{active: activeTab =='/projects'}">
+                <span class="menu-text">Projects</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
 
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-  <div ng-view class="clear-all main"></div>
-
+    <div ng-view class="clear-all main"></div>
+  </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
