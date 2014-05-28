@@ -9,15 +9,15 @@ angular.module('myApp', [
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {
-  	templateUrl: 'views/home.html', 
+  	templateUrl: 'views/home.html',
   	controller: 'HomeCtrl'
   });
   $routeProvider.when('/projects', {
-  	templateUrl: 'views/projects.html', 
+  	templateUrl: 'views/projects.html',
   	controller: 'ProjectsCtrl'
   });
   $routeProvider.when('/projects/:projectId', {
-    templateUrl: 'views/project.html', 
+    templateUrl: 'views/project.html',
     controller: 'ProjectCtrl'
   });
   $routeProvider.otherwise({

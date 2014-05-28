@@ -1,7 +1,7 @@
 @white: #fefefe;
 
 @primary-color: #9dbdc6;
-@secondary-color: #daeaef; 
+@secondary-color: #daeaef;
 @headline-color: #272f32;
 
 @link-color: #ff3d2e;
@@ -73,8 +73,12 @@ ul.unstyled {
 
 /* STYLE DEFAULTS */
 
+.body-wrapper {
+	position: relative: ;
+}
+
 body {
-	background: @white;
+	background-color: @white;
 	font-family: @default-font;
 	font-size: @default-font-size;
 	color: @default-font-color;
@@ -96,7 +100,7 @@ a {
 
 	&:hover {
 		color: @link-color-active;
-	} 
+	}
 }
 
 .inline-link:hover {
@@ -111,7 +115,7 @@ h1, h2, h3, h4, h5, h6, .logo {
 
 p:first-of-type {
 	margin-top: 0;
-}	
+}
 
 .portrait-pic:first-of-type {
 	margin-top: 0;
@@ -184,7 +188,7 @@ p {
 /* NAV */
 
 .header-wrapper {
-	background: @primary-color;
+	background: rgba(157, 189, 198, 0.8);
 	border-bottom: 1px solid @secondary-color;
 }
 
@@ -248,6 +252,23 @@ p {
 	.active, .active:hover {
 		background: @secondary-color;
 		color: darken(@primary-color, 25%);
+	}
+}
+
+/* HOME PAGE */
+
+.hero-img-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+	opacity: 0.3;
+	height: 600px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
 	}
 }
 
