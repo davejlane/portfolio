@@ -1,22 +1,28 @@
 @white: #fefefe;
-@default-font-color: #333;
 
-@header-color: #9dbdc6;
-@link-color: #ff3d2e;
-@link-color-active: #daeaef; 
+@primary-color: #9dbdc6;
+@secondary-color: #daeaef; 
 @headline-color: #272f32;
-@button-color: #e78e5b;
+
+@link-color: #ff3d2e;
+@link-color-active: darken(@link-color, 20%);
+@header-active-tab-bgd: #daeaef;
+
 
 @border-color: #ccc;
 
 @button-radius: .25rem;
 @round-portrait-iamge: 4rem;
+@hover-active-change: 15%;
 
 @headline-font : 'Dosis';
+@headline-weight: 600;
 @default-font: 'Helvetica-neue', sans-serif;
 @default-font-size: 16px;
+@default-font-color: #333;
 
 @header-line-height: 3rem;
+
 
 * {
 	box-sizing: border-box;
@@ -49,7 +55,7 @@ ul.unstyled {
 .portrait-pic {
 	padding: 0.5rem;
 	margin: 0.5rem 0.5rem 0.15rem;
-	border: 1px solid @link-color-active;
+	border: 1px solid @secondary-color;
 	background: #fff;
 	border-radius: @round-portrait-iamge;
 }
@@ -77,19 +83,25 @@ body {
 
 hr {
 	margin: 1rem 0;
-	border-top: 1px solid @link-color-active;
+	border-top: 1px solid @secondary-color;
 	border-bottom: 1px solid #fff;
 	border-left: none;
 	clear: both;
 }
 
 a {
-	color: @header-color;
+	color: @link-color;
 	transition: all 0.15s ease;
+	text-decoration: none;
 
 	&:hover {
 		color: @link-color-active;
 	} 
+}
+
+.inline-link:hover {
+	padding: 0.25em;
+	background: #eee;
 }
 
 h1, h2, h3, h4, h5, h6, .logo {
@@ -110,22 +122,22 @@ p:first-of-type {
 }
 
 .logo, .sub-heading {
-	font-weight: 700;
+	font-weight: @headline-weight;
 }
 
 .sub-heading {
-	border-left: 0.5rem solid @header-color;
+	border-left: 0.5rem solid @primary-color;
 	padding-left: 0.5rem;
 	margin-bottom: 0.5rem;
 }
 
 .headline {
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 2em;
 	margin: 1em 0;
 	color: @headline-color;
 	text-align: center;
-	border-bottom: 1px solid @link-color-active;
+	border-bottom: 1px solid @primary-color;
 	padding-bottom: 1rem;
 }
 
@@ -134,22 +146,15 @@ p {
 }
 
 .cta {
-/*	transition: all 0.15s ease;
-	display: inline-block;
-	text-decoration: none;
-	background: @button-color;
-	border-width: 1px;
-	border-style: solid;
-	border-color: darken(@button-color, 5%) darken(@button-color, 5%) darken(@button-color, 15%) darken(@button-color, 5%); 
-	padding: 0.75rem;
-	border-radius: @button-radius;
-	color: @white;*/
-	background: @headline-color;
+	background: @secondary-color;
 	color: @link-color-active;
 	text-decoration: none;
 	font-family: @headline-font;
 	font-size: 1.25rem;
-/*	font-weight: 700;*/
+	padding: 0.5rem;
+	font-weight: @headline-weight;
+	border-radius: @button-radius;
+	border: 1px solid @primary-color;
 
 	span {
 		transition: all 0.15s ease;
@@ -159,7 +164,6 @@ p {
 	}
 
 	&:hover {
-/*		background: darken(@button-color, 5%);*/
 		color: darken(@link-color, 25%);
 
 		span {
@@ -180,8 +184,8 @@ p {
 /* NAV */
 
 .header-wrapper {
-	background: @header-color;
-	border-bottom: 1px solid @link-color-active;
+	background: @primary-color;
+	border-bottom: 1px solid @secondary-color;
 }
 
 .main-header {
@@ -192,6 +196,10 @@ p {
 		line-height: @header-line-height;
 		text-decoration: none;
 		padding: 0.5rem;
+
+		&:hover {
+			background: transparent;
+		}
 	}
 }
 
@@ -204,7 +212,7 @@ p {
 		text-shadow: 1px 1px 1px darken(@white, 45%);
 
 		&:hover {
-			color: @link-color-active;
+			color: @secondary-color;
 		}
 	}
 }
@@ -218,8 +226,8 @@ p {
 
 		a {
 			text-align: center;
-			color: darken(@header-color, 25%);
-			text-shadow: 1px 1px 0 lighten(@header-color, 10%);
+			color: darken(@primary-color, 25%);
+			text-shadow: 1px 1px 0 lighten(@primary-color, 10%);
 			font-size: 1.5rem;
 
 			&:hover {
@@ -237,10 +245,12 @@ p {
 		}
 	}
 
-	.active {
-		background: @link-color-active;
+	.active, .active:hover {
+		background: @secondary-color;
+		color: darken(@primary-color, 25%);
 	}
 }
+
 @media all and (min-width: 40em) {
 
 	.main-header, .main {
