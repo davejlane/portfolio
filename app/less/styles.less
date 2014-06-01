@@ -20,6 +20,7 @@
 @default-font: 'Helvetica-neue', sans-serif;
 @default-font-size: 16px;
 @default-font-color: #333;
+@light-font-weight: 400;
 
 @header-line-height: 2rem;
 
@@ -77,9 +78,10 @@ hr {
 }
 
 a {
-	color: @link-color;
+	color: darken(@primary-color, 25%);
+	font-weight: 500;
 	transition: all 0.15s ease;
-	text-decoration: none;
+	text-decoration: underline;
 
 	&:hover {
 		color: @link-color-active;
@@ -105,7 +107,7 @@ p:first-of-type {
 	padding: 0 1rem;
 }
 
-.logo, .sub-heading {
+.sub-heading {
 	font-weight: @headline-weight;
 }
 
@@ -137,7 +139,7 @@ p {
 	font-family: @headline-font;
 	font-size: 1.25rem;
 	padding: 1rem 0.5rem;
-	font-weight: 400;
+	font-weight: @light-font-weight;
 	border-radius: @button-radius;
 	border: 1px solid @primary-color;
 	width: 100%;
@@ -197,6 +199,7 @@ p {
 .logo {
 	font-size: 1.5rem;
 	margin: 0;
+	font-weight: @light-font-weight;
 
 	a {
 		color: @white;
@@ -231,7 +234,7 @@ p {
 
 		a {
 			text-align: center;
-			color: darken(@primary-color, 25%);
+			color: @headline-color;
 			text-shadow: 1px 1px 0 lighten(@primary-color, 10%);
 			font-size: 1.4rem;
 
@@ -252,7 +255,7 @@ p {
 
 	.active, .active:hover {
 		background: @secondary-color;
-		color: darken(@primary-color, 25%);
+		color: @headline-color;
 	}
 }
 
@@ -276,7 +279,7 @@ p {
 
 @media all and (min-width: 30em) {
 
-	.main-header, .main {
+	.main-header {
 		max-width: 70em;
 		margin: 0 auto;
 	}
@@ -291,3 +294,103 @@ p {
 	}
 }
 
+.main {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+
+	.content {
+		max-width: 70em;
+		margin: 0 auto;
+	}
+}
+
+
+/* ANIMATIONS
+============================================================================= */
+
+.main.ng-leave 	{ z-index:9999; }
+.main.ng-enter 	{ z-index:8888; }
+
+/* page specific animations ------------------------ */
+
+/* home -------------------------- */
+.page-home.ng-leave         {
+  -webkit-transform-origin: 0% 0%;
+/*	-webkit-animation: rotateFall 1s both ease-in;*/
+/*	-webkit-animation:slideOutLeft 0.5s both ease-in;*/
+	-webkit-animation:scaleDown 0.3s both ease-in;
+
+}
+.page-home.ng-enter 		{  
+  -webkit-animation:scaleUp 0.3s both ease-in;  
+}
+
+/* about ------------------------ */
+.page-projects.ng-leave        {
+  -webkit-animation:slideOutLeft 0.3s both ease-in;
+  -webkit-animation:scaleDown 0.3s both ease-in;
+  
+}
+.page-projects.ng-enter 		{  
+  -webkit-animation:slideInRight 0.3s both ease-in;  
+/*  -webkit-animation-delay:0.1s;*/
+}
+
+/* contact ---------------------- */
+.page-project.ng-leave      {
+  -webkit-transform-origin: 50% 50%;
+	-webkit-animation: rotateOutNewspaper .5s both ease-in;
+}
+.page-project.ng-enter 		{ 
+  -webkit-animation:slideInRight 0.3s both ease-in;
+  -webkit-animation:scaleDown 0.3s both ease-in;
+}
+
+/* rotate and fall */
+@-webkit-keyframes rotateFall {
+	0% { -webkit-transform: rotateZ(0deg); }
+	20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
+	40% { -webkit-transform: rotateZ(17deg); }
+	60% { -webkit-transform: rotateZ(16deg); }
+	100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* scale up */
+
+@-webkit-keyframes scaleUp {
+	from 		{ opacity: 0.1; -webkit-transform: scale(0.1, 1); }
+}
+
+/* scale down */
+@-webkit-keyframes scaleDown {
+	to { opacity: 0; -webkit-transform: scale(0, 1); }
+}
+
+/* slide in from the right */
+
+@-webkit-keyframes slideInRight {
+	from 	{ 
+					opacity: 0;
+					-webkit-transform:translateX(100%); 
+				}
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+
+@-webkit-keyframes slideInUp {
+	from 	{ -webkit-transform:translateY(100%); }
+	to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide in from the bottom */
+
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+	to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}

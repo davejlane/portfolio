@@ -1,45 +1,48 @@
-<div class="hero-img-wrapper">
-	<img src="img/seattle-hero-3.jpg" class="hero-image" />
-</div>
-<div class="hero-copy">
-	<h1 class="headline">UI Engineering in Seattle, WA</h1>
-	<p>I am a UI Engineer living in the Pacific NW. My passion is in creating usable and accessible websites and applications, specializing in using the best practices, web standards and technologies to create dynamic and exciting user experiences.</p>
-	<p>I work using  CSS, Javascript, angularjs, HTML and Ruby on Rails along with a variety of other languages and platforms.</p>
-
-	<p>
-		<a href="#/projects" class="cta">View Recent Work<span class="icon-arrow-right-2"></span></a>
-	</p>
-</div>
-
-<hr/>
 <div class="content">
-	<h3 class="sub-heading">Core Skills:</h3>
-	<ul class="unstyled">
-		<li>HTML5</li>
-		<li>CSS3 / SASS / LESS</li>
-		<li>JavaScript / jQuery / Angular / Backbone</li>
-		<li>Ruby on Rails</li>
-		<li>Git</li>
-	</ul>
-</div>
 
-<hr/>
-<div class="content">
-	<h3 class="sub-heading">Contact me:</h3>
-	<ul class="unstyled">
-		<li class="icon-linkedin">LinkedIn</li>
-		<li class="icon-github">github</li>
-		<li class="icon-mail">email</li>
-		<li class="icon-file-word">Download resume</li>
-	</ul>
-</div>
-<hr/>
-<div class="content">
-	<h3 class="sub-heading">Latest work on github</h3>
-	<ul ng-repeat="response in responses | limitTo : 15">
-		<li>
-			{{response.id}} <br>
-			{{response.payload.commits[0].message}}
-		</li>
-	</ul>
+	<div class="hero-img-wrapper">
+	<!-- 	<img src="img/seattle-hero-3.jpg" class="hero-image" /> -->
+	</div>
+	<div class="hero-copy">
+		<h1 class="headline">UI Engineering in Seattle, WA</h1>
+		<p>I am a UI Engineer living in the Pacific NW. My passion is in creating usable and accessible websites and applications, specializing in using the best practices, web standards and technologies to create dynamic and exciting user experiences.</p>
+		<p>I work using  CSS, Javascript, angularjs, HTML and Ruby on Rails along with a variety of other languages and platforms.</p>
+
+		<p>
+			<a href="#/projects" class="cta">View Recent Work<span class="icon-arrow-right-2"></span></a>
+		</p>
+	</div>
+
+	<hr/>
+	<div class="content">
+		<h3 class="sub-heading">Core Skills:</h3>
+		<ul class="unstyled">
+			<li>HTML5</li>
+			<li>CSS3 / SASS / LESS</li>
+			<li>JavaScript / jQuery / Angular / Backbone</li>
+			<li>Ruby on Rails</li>
+			<li>Git</li>
+		</ul>
+	</div>
+
+	<hr/>
+	<div class="content">
+		<h3 class="sub-heading">Contact me:</h3>
+		<ul class="unstyled">
+			<li class="icon-linkedin">LinkedIn</li>
+			<li class="icon-github">github</li>
+			<li class="icon-mail">email</li>
+			<li class="icon-file-word">Download resume</li>
+		</ul>
+	</div>
+	<hr/>
+	<div class="content">
+		<h3 class="sub-heading">Latest work on github</h3>
+		<ul ng-repeat="response in responses | limitTo : 15">
+			<li>
+				{{response.id}} <br>
+				{{response.payload.commits[0].message}}
+			</li>
+		</ul>
+	</div>
 </div>
