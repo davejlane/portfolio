@@ -13,6 +13,7 @@
     "angular-resource": "1.2.x",
     "html5-boilerplate": "~4.3.0",
     "icomoon": "~0.0.1",
-    "less": "~1.7.0"
+    "less": "~1.7.0",
+    "ngAnimate": "1.2.x"
   }
 }

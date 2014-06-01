@@ -4,8 +4,8 @@
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
   'ngRoute',
-  'ngResource'
-
+  'ngResource',
+  'ngAnimate'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {
