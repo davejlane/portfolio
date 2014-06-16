@@ -1,8 +1,8 @@
-@white: #fefefe;
+@white: #FCFCFC;
 
-@primary-color: #9dbdc6;
-@secondary-color: #daeaef;
-@headline-color: #272f32;
+@primary-color: #21BBEF;
+@secondary-color: #82D0F5;
+@headline-color: #373736;
 
 @link-color: #ff3d2e;
 @link-color-active: darken(@link-color, 20%);
@@ -103,10 +103,14 @@ p:first-of-type {
 
 
 .main {
-	padding: 0 1rem;
+	padding: 1rem;
 	position: absolute;
-	top: 4rem;
+	top: 3rem;
 	width: 100%;
+
+	.content-wrapper {
+
+	}
 
 	.content {
 		max-width: 70em;
@@ -123,14 +127,18 @@ p:first-of-type {
 
 		li {
 			display: inline-block;
+			border: 1px solid #ddd;
+			padding: 0 0 0 0.25rem;
+			margin-bottom: 0.5rem;
+			border-radius: @button-radius;
 
-			&:after {
+			&:after, &:before {
 				content: '.';
-				color: @primary-color;
+				color: lighten(@headline-color, 25%);
 				font-size: 2rem;
 				position: relative;
 				top: -0.25rem;
-				padding: 0 0.25rem;
+				padding: 0 0.15rem;
 			}
 		}
 	}
@@ -187,7 +195,8 @@ p {
 }
 
 .cta {
-	background: @headline-color;
+	background: @primary-color;
+		background: linear-gradient(to top,  darken(@primary-color, 5rem%) 0%, @primary-color 100%); /* W3C */
 	color: @white;
 	text-decoration: none;
 	font-family: @headline-font;
@@ -220,7 +229,7 @@ p {
 		span {
 			color: @secondary-color;
 			transition: all 0.15s ease;
-			-webkit-animation: activeCta 0.15s both ease-in;
+			-webkit-animation: activeCta 0.1s both ease-in;
 
 		}
 	}
@@ -232,14 +241,13 @@ p {
 
 @-webkit-keyframes activeCta {
 	from 	{ -webkit-transform:translateX(0); }
-	to 		{ -webkit-transform: translateX(25%); }
+	to 		{ -webkit-transform: translateX(10%); }
 }
 
 /* NAV */
 
 .header-wrapper {
-	background: rgba(157, 189, 198, 0.8);
-	border-bottom: 1px solid @secondary-color;
+	background: @headline-color;
 }
 
 .main-header {
@@ -299,8 +307,8 @@ p {
 
 		a {
 			text-align: center;
-			color: @headline-color;
-			text-shadow: 1px 1px 0 lighten(@primary-color, 10%);
+			color: @white;
+/*			text-shadow: 1px 1px 0 lighten(@primary-color, 10%);*/
 			font-size: 1.4rem;
 
 			&:hover {
@@ -319,7 +327,7 @@ p {
 	}
 
 	.active, .active:hover {
-		background: @secondary-color;
+		background: @white;
 		color: @headline-color;
 	}
 }
@@ -332,15 +340,32 @@ p {
 	left: 0;
 	width: 100%;
 	z-index: -1;
-	opacity: 0.3;
+	opacity: 0.8;
 	height: 600px;
 	overflow: hidden;
 	display: none;
 
 	img {
 		width: 100%;
+
+	}
+
+	img.animated {
+  -webkit-animation: filter-animation 1s linear;
+	}
+
+	@-webkit-keyframes filter-animation {
+	  0% {
+	    -webkit-filter: blur(17px);
+	  }
+	  
+	  100% {
+	    -webkit-filter: blur(0);
+	  }
 	}
 }
+
+
 
 @media all and (min-width: 30em) {
 
@@ -394,7 +419,7 @@ p {
 }
 .page-home.ng-enter 		{  
   -webkit-animation:scaleUp 0.4s both ease-in; 
-  -webkit-animation: fadeIn 0.5s both ease-in; 
+  -webkit-animation: fadeIn 1s both ease-in; 
 }
 
 /* about ------------------------ */
