@@ -20,7 +20,8 @@
 @default-font: 'Helvetica-neue', sans-serif;
 @default-font-size: 16px;
 @default-font-color: #333;
-@light-font-weight: 400;
+@default-font-weight: 400;
+@light-font-weight: 200;
 
 @header-line-height: 2rem;
 
@@ -57,7 +58,7 @@ ul.unstyled {
 /* STYLE DEFAULTS */
 
 .body-wrapper {
-	position: relative: ;
+	position: relative;
 }
 
 body {
@@ -65,7 +66,7 @@ body {
 	font-family: @default-font;
 	font-size: @default-font-size;
 	color: @default-font-color;
-	line-height: 1.25rem;
+	line-height: 150%;
 }
 
 hr {
@@ -127,56 +128,87 @@ p:first-of-type {
 
 		li {
 			display: inline-block;
-			border: 1px solid #ddd;
-			padding: 0 0 0 0.25rem;
-			margin-bottom: 0.5rem;
+/*			border: 1px solid #ddd;
+			padding: 0 0 0.19rem 0.1rem;*/
+/*			margin-bottom: 0.5rem;*/
 			border-radius: @button-radius;
 
-			&:after, &:before {
+/*			&:after, &:before {
 				content: '.';
 				color: lighten(@headline-color, 25%);
 				font-size: 2rem;
 				position: relative;
 				top: -0.25rem;
 				padding: 0 0.15rem;
-			}
+			}*/
+		}
+
+		li:last-child:after {
+			content: '';
 		}
 	}
 
-	.contact {
+/*	.contact {
 
 		li {
 			line-height: 1.5rem;
 			margin-bottom: 1px;
+			width: 50%;
+			float: left;
+			background: lighten(@secondary-color, 15%);
+			border: 1px solid #fff;
+			transition: all 0.15s ease;
+
+			&:hover {
+				background: lighten(@secondary-color, 5%);
+			}
 		}
 
 		a {
 			display: block;
-			padding: 0.5rem;
-			background: @secondary-color;
+			padding: 0.75rem;
 			text-decoration: none;
-			color: @headline-color;
+			color: darken(@secondary-color, 35%);
 
 			&:hover {
-				background: darken(@secondary-color, 15%);
 			}
 		}
 		a:before {
-			color: darken(@secondary-color, 20%);
+			color: darken(@secondary-color, 5%);
+			text-shadow: 1px 1px 0 @white;
 			padding-right: 0.5rem;
 			font-size: 1.1rem;
+			position: relative;
+			bottom: -2px;
+		}
+	}*/
+}
+
+.contact {
+	a {
+/*		color: red;*/
+		border-radius: 25px;
+		background: @headline-color;
+		color: @white;
+		padding: 0.6rem;
+		float: left;
+		margin-right: 0.5rem;
+		font-size: 0.8rem;
+		text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+		text-decoration: none;
+
+		&:before {
+			font-size: 1rem;
 		}
 	}
 }
 
 .sub-heading {
 	font-weight: @headline-weight;
-}
-
-.sub-heading {
-	border-left: 0.5rem solid @primary-color;
-	padding-left: 0.5rem;
+	border-left: 0.2rem solid @primary-color;
+	padding: 0 0.5rem;
 	margin-bottom: 0.5rem;
+	display: inline-block;
 }
 
 .headline {
@@ -196,38 +228,37 @@ p {
 
 .cta {
 	background: @primary-color;
-		background: linear-gradient(to top,  darken(@primary-color, 5rem%) 0%, @primary-color 100%); /* W3C */
 	color: @white;
 	text-decoration: none;
 	font-family: @headline-font;
 	font-size: 1.25rem;
-	padding: 1rem 0.5rem;
+	padding: 0.75rem 1.75rem 0.75rem 0.35rem;
 	font-weight: @light-font-weight;
 	border-radius: @button-radius;
 	border: 1px solid @primary-color;
 	width: 100%;
 	display: block;
 	text-align: center;
-	max-width: 15rem;
-	margin: 2.5rem auto;
-	padding-right: 2rem;
+	max-width: 13rem;
 	position: relative;
+	transition: all 0.25s ease;
+	margin: 0 auto;
 
 	span {
-		transition: all 0.15s ease;
+		transition: all 0.25s ease;
 		font-size: 1rem;
-		padding-left: 1rem;
+		padding-left: 0.75rem;
 		color: @white;
 		position: absolute;
-		top: 1.2rem;
+		top: 1.1rem;
 	}
 
 	&:hover {
-		color: @secondary-color;
-		background: darken(@headline-color, 5%);
+		transition: all 0.25s ease;
+		color: @white;
+		background: darken(@primary-color, 10%);
 
 		span {
-			color: @secondary-color;
 			transition: all 0.15s ease;
 			-webkit-animation: activeCta 0.1s both ease-in;
 
@@ -268,31 +299,62 @@ p {
 .logo {
 	font-size: 1.5rem;
 	margin: 0;
-	font-weight: @light-font-weight;
 
 	a {
 		color: @white;
 		padding: 0.5rem 0.5rem 0.5rem 0;
+		font-weight: @light-font-weight;
 
 		&:hover {
 			color: @secondary-color;
-
-			.portrait-pic {
-				background-color: @secondary-color;
-			}
-		}
-
-		.portrait-pic {
-			width: 3rem;
-			margin: 0 0.5rem -1rem 0;
-			border-radius: @round-portrait-iamge;
-			padding: 0.25rem;
-			background: @white;
-			box-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9);
-			display: none;
 		}
 	}
 }
+
+.doodle {
+	width: 3rem;
+	height: 1.8rem;
+	display: block;
+	float: left;
+	position: relative;
+	top: 10px;
+	margin-right: 0.5rem;
+
+	span {
+		border-radius: 5px;
+	}
+
+	.line-1 {
+		width: 30%;
+		height: 4px;
+		background: lighten(@secondary-color, 10%);
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.line-2 {
+		width: 60%;
+		height: 4px;
+		background:	@secondary-color;
+		display: block;
+		position: absolute;
+		top: 30%;
+		right: 0;
+	}
+
+	.line-3 {
+		width: 90%;
+		height: 4px;
+		background: darken(@secondary-color, 10%);
+		display: block;
+		position: absolute;
+		top: 70%;
+		right: 0;
+	}
+}
+
 
 .menu {
 	float: right;
@@ -340,7 +402,7 @@ p {
 	left: 0;
 	width: 100%;
 	z-index: -1;
-	opacity: 0.8;
+	opacity: 0.9;
 	height: 600px;
 	overflow: hidden;
 	display: none;
@@ -351,36 +413,184 @@ p {
 	}
 
 	img.animated {
-  -webkit-animation: filter-animation 1s linear;
+  -webkit-animation: filter-animation 3s linear;
+ 	-webkit-filter: saturate(2);
 	}
 
 	@-webkit-keyframes filter-animation {
 	  0% {
-	    -webkit-filter: blur(17px);
+	    -webkit-filter: blur(5px) grayscale(0.9);
+/*	    -webkit-filter: grayscale(0.9);*/
+/*	     -webkit-filter: saturate(0.5);*/
 	  }
 	  
 	  100% {
-	    -webkit-filter: blur(0);
+	    -webkit-filter: blur(0) grayscale(0) saturate(2);
+/*	    -webkit-filter: grayscale(0);*/
+/*	    -webkit-filter: saturate(3.0);*/
 	  }
 	}
 }
 
 
 
-@media all and (min-width: 30em) {
+
+@media all and (min-width: 48em) {
 
 	.main-header {
 		max-width: 70em;
 		margin: 0 auto;
 	}
 
+	.hero-copy {
+background: rgba(224,239,249,0.67);
+background: -moz-linear-gradient(45deg, rgba(224,239,249,0.67) 0%, rgba(181,198,208,0.69) 30%, rgba(242,246,248,0.73) 71%, rgba(230,236,240,0.74) 88%, rgba(242,246,248,0.75) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(224,239,249,0.67)), color-stop(30%, rgba(181,198,208,0.69)), color-stop(71%, rgba(242,246,248,0.73)), color-stop(88%, rgba(230,236,240,0.74)), color-stop(100%, rgba(242,246,248,0.75)));
+background: -webkit-linear-gradient(45deg, rgba(224,239,249,0.67) 0%, rgba(181,198,208,0.69) 30%, rgba(242,246,248,0.73) 71%, rgba(230,236,240,0.74) 88%, rgba(242,246,248,0.75) 100%);
+background: -o-linear-gradient(45deg, rgba(224,239,249,0.67) 0%, rgba(181,198,208,0.69) 30%, rgba(242,246,248,0.73) 71%, rgba(230,236,240,0.74) 88%, rgba(242,246,248,0.75) 100%);
+background: -ms-linear-gradient(45deg, rgba(224,239,249,0.67) 0%, rgba(181,198,208,0.69) 30%, rgba(242,246,248,0.73) 71%, rgba(230,236,240,0.74) 88%, rgba(242,246,248,0.75) 100%);
+background: linear-gradient(45deg, rgba(224,239,249,0.67) 0%, rgba(181,198,208,0.69) 30%, rgba(242,246,248,0.73) 71%, rgba(230,236,240,0.74) 88%, rgba(242,246,248,0.75) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0eff9', endColorstr='#f2f6f8', GradientType=1 );
+		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+		padding: 1.5rem 1.5rem 0.5rem;
+
+		p {
+			font-size: 1.2rem;
+		}
+	}
+
 	.headline {
 		font-size: 4rem;
 		line-height: 4.5rem;
+/*		border-bottom: none;*/
+		margin-bottom: 0;
+/*		padding: 0.5rem;*/
 	}
 
 	.hero-img-wrapper {
 		display: block;
+		height: 700px;
+	}
+}
+
+@media all and (min-width: 60em) {
+
+	.page-content {
+		overflow: scroll;
+	}
+
+	.header-wrapper {
+		background-color: rgba(55, 55, 54, 0.8);
+		position: absolute;
+		width: 100%;
+
+		.menu li a {
+			&:before {
+				display: none;
+			}
+
+			.menu-text {
+				display: inline-block;
+				text-indent: 0;
+				font-size: 1rem;
+				padding: 0 1.5rem;
+			}
+		}
+	}
+
+	.hero-img-wrapper {
+		top: 0;
+		height: 500px;
+	}
+
+	.hero-copy {
+		background: none;
+		box-shadow: none;
+		width: 40rem;
+		margin: 0 0 0 38.5%;
+		padding-top: 2rem;
+
+		.headline {
+			border:none;
+			font-size: 5rem;
+			line-height: 110%;
+
+			span {
+				display: block;
+			}
+		}
+	}
+
+	.home-copy {
+		width: 70rem;
+		margin: 0 auto;
+		padding-top: 200px;
+		overflow: hidden;
+	}
+
+	.blurb {
+		width: 50%;
+		float: left;
+		padding-right: 2rem;
+		margin-right: 2rem;
+		border-right: 1px solid @border-color;
+
+		.portrait-pic {
+			width: 3rem;
+			margin: 0 0.5rem -1rem 0;
+			border-radius: @round-portrait-iamge;
+			padding: 0.25rem;
+			background: @white;
+			box-shadow: 0.5px 0.5px 0px rgba(255, 255, 255, 0.9);
+			display: none;
+		}
+	}
+
+	.main .skills {
+		li {
+			display: block;
+
+			span:before {	
+				content: '/';
+				padding: 0 0.5rem 0 0.5rem;
+				color: #878786;
+			}
+		}
+
+	}
+
+	.main .content {
+		border-bottom: none;
+		margin: 0;
+	}
+
+	.primary-footer {
+/*		position: fixed;*/
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: @white;
+		clear: both;
+		margin: 1rem auto 0;
+		padding: 1rem 0 0;
+		border-top: 1px solid @border-color;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			margin: 0 2rem 0 0;
+
+			&:before {
+				color: #878786;
+				margin-right: 0.25rem;
+				position: relative;
+				bottom: -2px;
+			}
+
+			a {
+				color: #878786;
+			}
+		}
 	}
 }
 
@@ -418,8 +628,8 @@ p {
 
 }
 .page-home.ng-enter 		{  
-  -webkit-animation:scaleUp 0.4s both ease-in; 
-  -webkit-animation: fadeIn 1s both ease-in; 
+/*  -webkit-animation:scaleUp 0.4s both ease-in; 
+  -webkit-animation: fadeIn 0.3s both ease-in; */
 }
 
 /* about ------------------------ */
